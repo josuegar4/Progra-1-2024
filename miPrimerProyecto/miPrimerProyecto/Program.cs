@@ -10,16 +10,22 @@ namespace miPrimerProyecto
     {
         static void Main(string[] args)
         {
-            //Prioridad de los operadores aritmeticos.
-            //ejercicio obtener el promedio de una serie de numeros
-            int[] serie = new int[] { 5, 4, 6, 8, 9 }; //32
-            int suma = 0;
-            foreach (int num in serie)
+            //estructuras de control.
+            //1. if. ejercicio. pedir al usuario la edad si es mayor de edad que le diga bienvenido.
+            Console.Write("Edad: ");
+            int edad = int.Parse(Console.ReadLine());
+
+            if (edad >= 18)
             {
-                suma += num;
+                Console.WriteLine("Bienvenido al mundo de las reposabilidades.");
             }
-            decimal prom = suma / serie.Length;
-            Console.WriteLine("La suma es: {0}, el promedio {1}", suma, prom);
+            else
+            {
+                Console.WriteLine("Eres un adolescente, disfruta de la vida.");
+            }
+
+            //Pausa.
+            Console.ReadLine();
         }
     }
 }
