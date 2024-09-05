@@ -17,7 +17,8 @@ namespace miPrimerProyecto
             String serie = Console.ReadLine();
             String[] numeros = serie.Split(',');
 
-            Console.WriteLine("La media aritmetica es: {0}, y la desviacion tipica es: {1}", media(numeros), tipica(numeros));
+            Console.WriteLine("La media aritmetica es: {0}, y la desviacion tipica es: {1}, la media armonica es: {2}",
+                media(numeros), tipica(numeros), armonica(numeros));
 
             Console.ReadLine();
         }
@@ -40,6 +41,16 @@ namespace miPrimerProyecto
             }
             tipica = Math.Sqrt(tipica / serie.Length);
             return Math.Round(tipica, 2);
+        }
+        static double armonica(string[] serie)
+        {
+            double armonica = 0;
+            foreach (string num in serie)
+            {
+                armonica += (1.0 / double.Parse(num));
+            }
+            armonica = serie.Length / armonica;
+            return Math.Round(armonica, 2);
 
         }
 
