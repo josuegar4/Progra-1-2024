@@ -10,34 +10,54 @@ namespace miPrimerProyecto
     {
         static void Main(string[] args)
         {
-            //Uso de matrices. Calcular el suelo de una persona.
+            // Definir la matriz con rangos y tasas de ISR
+            double[,] matriz = {
+            { 0, 472.00, 10, 0 },     // Menor o igual a 472.00 (tasa 10%, sin monto fijo)
+            { 472.01, 895.24, 20, 47.20 }, // Desde 472.01 hasta 895.24 (tasa 20%, monto fijo 47.20)
+            { 895.25, 2038.10, 30, 172.20 }, // Desde 895.25 hasta 2038.10 (tasa 30%, monto fijo 172.20)
+            { 2038.11, double.MaxValue, 35, 417.20 } // Desde 2038.11 en adelante (tasa 35%, monto fijo 417.20)
+        };
 
-            double[,] matriz = new double[,] {
-                {0.01,   487.6,  0, 0},
-                {487.61, 642.85, 10,17.48},
-                {642.86, 915.81, 10,32.70},
-                {915.82, 2058.67,20,60.00},
-                {2058.68,9999999,30,288.57},
-            };
+            // Solicitar el sueldo al usuario
             Console.Write("Sueldo: ");
-            double sueldo = double.Parse(Console.ReadLine()),
-                afp = sueldo * 6.25 / 100,
-                isss = sueldo * 3 / 100;
+            double sueldo = double.Parse(Console.ReadLine());
+
+            // Calcular AFP (6.25% del sueldo)
+            double afp = sueldo * 6.25 / 100;
+
+            // Calcular ISSS (3% del sueldo)
+            double isss = sueldo * 3 / 100;
+
+            // Inicializar ISR
+            double isr = 0;
+
+            // Deducir AFP del sueldo
             sueldo -= afp;
 
-            double isr = 0;
-            for (int i = 0; i < 5; i++)
+            // Calcular ISR según las tablas definidas en la matriz
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 if (sueldo >= matriz[i, 0] && sueldo <= matriz[i, 1])
                 {
                     isr = (sueldo - (matriz[i, 0] - 0.01)) * matriz[i, 2] / 100 + matriz[i, 3];
+                    break; // Salir del bucle una vez que se encuentra el rango correcto
                 }
             }
+
+            // Deducir ISSS e ISR del sueldo
             sueldo -= isss;
             sueldo -= isr;
-            Console.WriteLine("Sueldo Neto: {0}, AFP: {1}, ISSS: {2}, ISR: {3}", Math.Round(sueldo, 2), afp, isss, Math.Round(isr, 2));
 
+            // Imprimir los resultados
+            Console.WriteLine("Sueldo Neto: {0}, AFP: {1}, ISSS: {2}, ISR: {3}",
+                Math.Round(sueldo, 2),
+                Math.Round(afp, 2),
+                Math.Round(isss, 2),
+                Math.Round(isr, 2));
+
+            // Esperar que el usuario presione una tecla para cerrar la consola
             Console.ReadLine();
+
         }
     }
 }
