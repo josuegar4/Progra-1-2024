@@ -1,7 +1,0 @@
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\bin\Debug\miPrimerProyecto.exe.config
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\bin\Debug\miPrimerProyecto.exe
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\bin\Debug\miPrimerProyecto.pdb
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.csproj.AssemblyReference.cache
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.csproj.CoreCompileInputs.cache
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.exe
-C:\Users\josue\Desktop\Progra1-2024\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.pdb
